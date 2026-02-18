@@ -4,7 +4,9 @@
   "main": "index.js",
   "scripts": {
     "server": "nodemon index.js",
-    "test": "cross-env NODE_ENV=testing jest --verbose --runInBand"
+    "test": "cross-env NODE_ENV=testing jest --verbose --runInBand",
+    "resetdb": "knex migrate:rollback && knex migrate:latest && knex seed:run",
+    "sendresults": "node sendTestResults.js"
   },
   "devDependencies": {
     "@types/jest": "^27.5.0",
@@ -12,7 +14,8 @@
     "eslint": "^8.15.0",
     "jest": "^28.1.0",
     "nodemon": "^2.0.16",
-    "supertest": "^6.2.3"
+    "supertest": "^6.2.3",
+    "jest-ctrf-json-reporter": "^0.0.9"
   },
   "dependencies": {
     "sqlite3": "^5.0.8",
